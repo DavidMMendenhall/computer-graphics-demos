@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DS Demo</title>
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+        <style>
+            body{
+                background-color: black;
+                color: white;
+                font-family: 'Roboto';
+            }
+            td{
+                border-bottom: 2px solid white;
+                font-size: larger;
+            }
+            #screen_container{
+                display: grid;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width:100vw;
+                height:100vh;
+                grid-template-columns: 75% 25%;
+                grid-template-rows: 25% 75%;
+                grid-template-areas: 
+                "canvas settings"
+                "canvas output";
+            }
+            #canvas{
+                grid-area: canvas;
+                width: 100%;
+                height: 100%;
+                cursor: crosshair;
+            }
+            #settings {
+                grid-area: settings;
+            }
+            #output {
+                overflow-y: scroll;
+                scroll-behavior: smooth;
+                grid-area: output;
+                border: 2px solid grey;
+            }
+
+            #output > * {
+                border-radius: 2px;
+                padding: 10px;
+            }
+            #controls {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                backdrop-filter: blur(10px);
+                display: none;
+            }
+            #controls_content {
+                text-align: center;
+                position: absolute;
+                width: fit-content;
+                height: fit-content;
+                padding: 10px;
+                top:0px;
+                left:0px;
+                right:0px;
+                bottom:0px;
+                margin: auto;
+                background-color: rgba(0,0,0,0.2);
+            }
+            #node_primitive_count {
+                width: 75px;
+            }
+
+            
+            
+        </style>
+    </head>
+    <body>
+        <div id="screen_container">
+            <div id="settings">
+                <span>Max Primaitves Per Node:</span>&nbsp;
+                <input type='number' step="1"  value="400" id="node_primitive_count">
+                <input type="button" value="Build BVH" id="generate_bvh">
+                <input type="button" value="Build Octree" id="generate_ot">
+                <br>
+                <br>
+                <span>Tree to show: </span>
+                <select id="tree_select">
+                    <option value="bvh">BVH</option>
+                    <option value="oct">Octree</option>
+                </select>
+                <br>
+                <br>
+                <input type="button" value="Check Controls" onclick="document.querySelector('#controls').style.display='block'">
+            </div>
+        </div>
+        <div id="controls" onclick="this.style.display='none'">
+            <div id="controls_content">
+                <h1>Controls</h1>
+                <table>
+                    <tr><td>w, a, s, d</td><td>Move Camera</td></tr>
+                    <tr><td>z, x, Scroll</td><td>Zoom in/out</td></tr>
+                    <tr><td>t</td><td><u>T</u>arget intersection</td></tr>
+                    <tr><td>r</td><td><u>R</u>eset camera target</td></tr>
+                    <tr><td>m</td><td>Change box rendering <u>M</u>ode</td></tr>
+                    <tr><td>o, l</td><td>Toggle box <u>L</u>ines and <u>O</u>verlays</td></tr>
+                    <tr><td>Click</td><td>Cast Ray</td></tr>
+                </table>
+                <p>(click to exit)</p>
+            </div>
+        </div>
+        <script src="scripts/driver.js" type="module"></script>
+    </body>
+</html>

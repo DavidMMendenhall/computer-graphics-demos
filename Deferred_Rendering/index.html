@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Deferred Rendering Demo</title>
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+        <style>
+            #canvas_grid{
+                display: grid;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                width: max-content;
+                margin:auto;
+                grid-template-rows: auto;
+                grid-template-columns: auto;
+                grid-template-areas: 
+                "final light"
+                "color normal"
+                "depth material";
+            }
+            #canvas_grid > * {
+                align-self: center;
+                justify-self: center;
+                padding: 10px;
+                border: 2px solid black;
+            }
+            #main_canvas{
+                grid-area: final;
+            }
+            #color_canvas{
+                grid-area: color;
+            }
+            #depth_canvas{
+                grid-area: depth;
+            }
+            #material_canvas{
+                grid-area: material;
+            }
+            #light_canvas{
+                grid-area: light;
+            }
+            #normal_canvas{
+                grid-area: normal;
+            }
+            body{
+                color:white;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="scripts/driver.js" type="module"></script>
+    </body>
+</html>
