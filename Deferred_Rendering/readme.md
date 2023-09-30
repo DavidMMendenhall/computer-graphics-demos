@@ -15,3 +15,6 @@ Scenes:
 - Color: The underlying color of the material.
 
 There is not much in terms of configuring via UI of this demo.
+
+## How to run?
+This can be run on any HTTP server. This also comes with its own server.js for running using a node.js server. You can run using the command `npm start` in the root of this project and use a WebGPU enabled browser to navigate to the port speciifed.

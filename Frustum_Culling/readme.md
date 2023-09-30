@@ -23,3 +23,6 @@ There are various settings for what the demo should be doing.
 2. point out the FPS
 3. disable culling, the FPS should drop (if it doesn't, try increasing the item count, and show FPS increases when you re-enable culling)
 4. Re-enable culling and show the tree data structure around the objects to show how it minimizes the number of hit tests required to detrmine what is in the view frustum.
+
+## How to run?
+This can be run on any HTTP server. This also comes with its own server.js for running using a node.js server. You can run using the command `npm start` in the root of this project and use a WebGL enabled browser to navigate to the port speciifed.
