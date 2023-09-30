@@ -3,7 +3,7 @@ This repository contains various computer graphics demos using WebGL or WebGPU. 
 
 - Frustum Culling 
 - Raytracing
-- Differed Rendering
+- Deferred Rendering
 
 I plan on adding other demos as well as time comes.
 
