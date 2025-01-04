@@ -42,8 +42,8 @@ let camera = {
 let worldSize = 5;
 let halfSize = worldSize / 2;
 let worldAABB = [-halfSize, -halfSize, -halfSize, halfSize, halfSize, halfSize];
-const modelA = await loadPLY('./assets/models/bun_zipper.ply');
-const modelB = await loadPLY('./assets/models/dragon_vrip.ply');
+const modelA = await loadPLY('./assets/models/bun_zipper_res4.ply');
+const modelB = await loadPLY('./assets/models/dragon_vrip_res4.ply');
 const reflectorModel = createDiskModel(10, 0.01, 0.05);
 const floorModel = createFloorModel(worldSize);
 
