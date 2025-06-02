@@ -1,5 +1,5 @@
 // @ts-check
-import { copyMatrix3x3, copyMatrix4x4, getIdenity4x4Matricies, inverseMatrix4x4, lookAt, multiplyMatrix4x4, scaleMatrix4x4, translate, transposeMatrix4x4 } from "./matrix.js";
+import { copyMatrix3x3, copyMatrix4x4, getIdentity4x4Matrices, inverseMatrix4x4, lookAt, multiplyMatrix4x4, scaleMatrix4x4, translate, transposeMatrix4x4 } from "./matrix.js";
 import { matrixFromQuaternion } from "./quaternion.js";
 
 /**
@@ -103,7 +103,7 @@ let addItemToBatch = (item, batch) => {
     let rotationMatrix = new Float32Array(matrixFromQuaternion(item.quaternion));
     transposeMatrix4x4(rotationMatrix, true);
     scaleMatrix4x4(rotationMatrix, item.scale[0], item.scale[1], item.scale[2])
-    let translationMatrix = getIdenity4x4Matricies(1);
+    let translationMatrix = getIdentity4x4Matrices(1);
     translate(translationMatrix, item.position[0], item.position[1], item.position[2]);
 
     let modelMatrix = multiplyMatrix4x4(rotationMatrix, translationMatrix);
@@ -129,7 +129,7 @@ let addItemToBatch = (item, batch) => {
  * Adds a light to a batch
  * @param {import("./graphics.js").Light} light 
  * @param {LightBatch} batch 
- * @param {import("./camera.js").Camera} camera needed so light gemoetry can face camera
+ * @param {import("./camera.js").Camera} camera needed so light geometry can face camera
  */
 let addLightToBatch = (light, batch, camera) => {
     if(batch.allocatedLightCount <= batch.lightCount){

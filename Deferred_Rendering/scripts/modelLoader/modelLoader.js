@@ -111,7 +111,7 @@ let parseGeometry = async (text, file, header, normalize=true) => {
                     index ++;
                 }else{
                     let itemCount = parseInt(values[index]);
-                    index += itemCount + 1;// we don't care about any list properties for indecies right now
+                    index += itemCount + 1;// we don't care about any list properties for indices right now
                 }
             }
             minmax[0] = Math.min(minmax[0], x);
@@ -139,7 +139,7 @@ let parseGeometry = async (text, file, header, normalize=true) => {
             for(let i = 0; i < header.face_properties.length; i++){
                 let property = header.face_properties[i];
                 if(property.listIndexFormat === ''){
-                    index ++; // we don't care about any non list properties for indecies
+                    index ++; // we don't care about any non list properties for indices
                 }else{
                     let itemCount = parseInt(values[index]);
                     if(property.name == 'vertex_index' || property.name == 'vertex_indices'){
@@ -158,7 +158,7 @@ let parseGeometry = async (text, file, header, normalize=true) => {
     } else if(header.format == 'binary_big_endian' || header.format == 'binary_little_endian'){
         const bigEndian = header.format == 'binary_big_endian';
         if(!bigEndian){
-            throw 'Little edian not supported'
+            throw 'Little endian not supported'
         }
         let dataBuffer = await file.arrayBuffer();
         let data = new DataView(dataBuffer);
@@ -182,7 +182,7 @@ let parseGeometry = async (text, file, header, normalize=true) => {
                 }else{
                     //
                     let itemCount = data.getInt8(byte);
-                    byte += itemCount * byteSizeTable[property.format] + 1;// we don't care about any list properties for indecies right now
+                    byte += itemCount * byteSizeTable[property.format] + 1;// we don't care about any list properties for indices right now
                 }
             }
             colors[vertex * 3 + 0] = 1.0;
@@ -204,7 +204,7 @@ let parseGeometry = async (text, file, header, normalize=true) => {
             for(let i = 0; i < header.face_properties.length; i++){
                 let property = header.face_properties[i];
                 if(property.listIndexFormat === ''){
-                    byte += byteSizeTable[property.format]; // we don't care about any non list properties for indeices
+                    byte += byteSizeTable[property.format]; // we don't care about any non list properties for indices
                 }else{
                     let itemCount = data.getUint8(byte);
                     if(property.name == 'vertex_index' || property.name == 'vertex_indices'){

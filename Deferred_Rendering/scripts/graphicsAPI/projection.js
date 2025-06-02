@@ -10,7 +10,7 @@ import { copyMatrix4x4, transposeMatrix4x4 } from "./matrix.js";
  * @param {number} bottom 
  * @param {number} near 
  * @param {number} far 
- * @param {number[] | null} dest If provided, resutling matrix will be stored in this matrix.
+ * @param {number[] | null} dest If provided, resulting matrix will be stored in this matrix.
  * @returns 
  */
 function projectionParallel(left, right, top, bottom, near, far, dest=null) {

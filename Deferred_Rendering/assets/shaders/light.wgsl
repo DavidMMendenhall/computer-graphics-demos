@@ -59,7 +59,9 @@ fn fragment_main(fragData: VertexOut) -> FragmentOut
     var bufferSize = textureDimensions(gDepth);
     var uv = fragData.position.xy / vec2<f32>(bufferSize);
     var screenPosition = (uv - vec2(0.5)) * 2.0 * vec2(1.0, -1.0) ;
-    var depth = textureSample(gDepth, mySampler, uv);
+    var depth_dim = textureDimensions(gDepth);
+    var depth_coords = vec2u(uv * vec2f(depth_dim));
+    var depth = textureLoad(gDepth, depth_coords, 0);
     var color = textureSample(gColor, mySampler, uv);
     var normal = (textureSample(gNormal, mySampler, uv).xyz - vec3(0.5)) * 2.0;
     var material = textureSample(gMaterial, mySampler, uv);

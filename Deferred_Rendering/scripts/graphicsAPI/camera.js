@@ -10,7 +10,7 @@
  * @prop {number} aspect Width/Height
 */
 
-import { copyMatrix4x4, getIdenity4x4Matricies, inverseMatrix4x4, lookAt, multiplyMatrix4x4 } from "./matrix.js";
+import { copyMatrix4x4, getIdentity4x4Matrices, inverseMatrix4x4, lookAt, multiplyMatrix4x4 } from "./matrix.js";
 import { projectionPerspectiveFOV } from "./projection.js";
 
 /**
@@ -34,7 +34,7 @@ let getCameraMatrix = (camera, destination) => {
 let getInverseViewProjectionAspectMatrix = (camera, destination) => {
     let projection = projectionPerspectiveFOV(camera.fieldOfView, camera.near, camera.far);
     let view = getCameraMatrix(camera);
-    let aspect = getIdenity4x4Matricies(1);
+    let aspect = getIdentity4x4Matrices(1);
     if(camera.aspect > 1){
         aspect[0] = 1/camera.aspect;
     }else{
