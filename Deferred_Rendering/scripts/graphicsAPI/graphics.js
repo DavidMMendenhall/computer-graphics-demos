@@ -259,13 +259,13 @@ const gBufferPipelineDescriptor = {
         entryPoint: "fragment_main",
         targets: [
             {
-                format: "bgra8unorm",
+                format: "rgba8unorm",
             },
             {
-                format: "bgra8unorm",
+                format: "rgba8unorm",
             },
             {
-                format: "bgra8unorm",
+                format: "rgba8unorm",
             },
         ],
     },
@@ -299,7 +299,7 @@ const lightPipelineDescriptor = {
         entryPoint: "fragment_main",
         targets: [
             {
-                format: "bgra8unorm",
+                format: "rgba8unorm",
                 blend: {
                     alpha: {
                         srcFactor: "one",
@@ -334,7 +334,7 @@ const combinePipelineDescriptor = {
         entryPoint: "fragment_main",
         targets: [
             {
-                format: "bgra8unorm",
+                format: "rgba8unorm",
             },
         ],
     },
@@ -357,7 +357,7 @@ const depthPipelineDescriptor = {
         entryPoint: "fragment_main",
         targets: [
             {
-                format: "bgra8unorm",
+                format: "rgba8unorm",
             },
         ],
     },
@@ -397,10 +397,10 @@ let createFrameTexture = (width, height, format) => {
 const gBuffer = ((width, height) => {
     return {
         depth: createFrameTexture(width, height, "depth32float"),
-        color: createFrameTexture(width, height, "bgra8unorm"),
-        normal: createFrameTexture(width, height, "bgra8unorm"),
-        material: createFrameTexture(width, height, "bgra8unorm"),
-        light: createFrameTexture(width, height, "bgra8unorm"),
+        color: createFrameTexture(width, height, "rgba8unorm"),
+        normal: createFrameTexture(width, height, "rgba8unorm"),
+        material: createFrameTexture(width, height, "rgba8unorm"),
+        light: createFrameTexture(width, height, "rgba8unorm"),
     };
 })(canvasSize, canvasSize);
 
